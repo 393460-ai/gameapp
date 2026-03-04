@@ -11,8 +11,8 @@ A high-speed platformer game built with PHP, JavaScript, and HTML5 Canvas.
 - `css/style.css`: Visual styling.
 - `data/gamePlay.json`: Persistence for scores and player data.
 
-## Features
-- Fast-paced lynx movement.
-- Procedural level generation (planned).
-- Spin Charge mechanic.
-- JSON-based leaderboard.
+## Creative Features (Scream & Carti Theme)
+- **Fear Meter:** Screen pulses red as the Lynx speeds up.
+- **Ghostface Traps:** Scream-inspired obstacles in Woodsboro levels.
+- **Neon Overdrive:** Visuals shift to neon green (Carti style) at max speed.
+- **Bass-Boosted Spin Charge:** Audio builds energy before launching.

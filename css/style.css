@@ -1,11 +1,52 @@
 body {
-    background-color: #1a1a1a;
-    color: white;
-    font-family: sans-serif;
+    background-color: #000; /* Black for Scream theme */
+    color: #ff0000; /* Red for fear/blood theme */
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
 }
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px #555;
+}
+
 canvas {
-    background-color: #333;
+    background-color: #111;
     display: block;
     margin: 20px auto;
+    border: 3px solid #ff0000;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+.carti-neon {
+    color: #00ff00; /* Neon green for Carti vibes */
+    text-shadow: 0 0 10px #00ff00;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: #ff0000;
+    color: #000;
+}
+
+/* Fear Meter pulse animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px #ff0000; }
+    50% { box-shadow: 0 0 30px #ff0000; }
+    100% { box-shadow: 0 0 10px #ff0000; }
+}
+
+.active-game {
+    animation: pulse 2s infinite;
 }
