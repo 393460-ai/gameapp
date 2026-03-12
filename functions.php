@@ -16,6 +16,6 @@ function getScores() {
 
 // 2. Your Welcome Function (This fixes your error!)
 function welcomePlayer() {
-    return "Ready to run? The Woodsboro Night awaits...";
+    return "are u ready to play high speed lynx game?...";
 }
 ?>

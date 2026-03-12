@@ -3,7 +3,13 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 let gameState = "start"; 
+// L2-MW-ScoreTracking-2026-03-10
 
+
+// --- NEW: HUD TRACKERS ---
+let score = 0;
+let frames = 0; // We use frames to calculate how many seconds have passed!
+let coinsCollected = 0; // Gotta secure the bag!
 // 2. Define our Lynx stats (Now with Physics!)
 let lynx = {
     x: 50,
@@ -26,8 +32,22 @@ function drawGame() {
     if (gameState === "start") {
         ctx.fillStyle = "white";
         ctx.font = "30px Arial";
-        ctx.fillText("Press SPACE to escape Woodsboro", 150, 200);
+        ctx.fillText("Press SPACE to escape the enemies", 150, 200);
     } else if (gameState === "playing") {
+
+        // --- NEW: HUD / SCORE TRACKER ---
+        frames += 1; // Add 1 frame every time the loop runs (60 times a second)
+        let timeSurvived = Math.floor(frames / 60); // Math.floor rounds down to a clean second!
+        score += 1; // Score goes up just by surviving!
+
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+
+        // Draw the stats stacked on top of each other in the top left corner
+        ctx.fillText("Score: " + score, 20, 30); 
+        ctx.fillText("Time: " + timeSurvived + "s", 20, 60); 
+        ctx.fillText("Coins: " + coinsCollected, 20, 90); 
+
         // --- PHYSICS ENGINE ---
         lynx.dy += gravity; // Gravity constantly pulls us down
         lynx.y += lynx.dy;  // Move the Lynx based on its speed
@@ -46,20 +66,3 @@ function drawGame() {
         requestAnimationFrame(drawGame); // Tells the browser to draw the next frame
     }
 }
-
-// Draw the very first frame
-drawGame();
-
-// 4. Listen for the spacebar (Start game AND Jump!)
-document.addEventListener("keydown", function(event) {
-    if (event.code === "Space") {
-        if (gameState === "start") {
-            // If on the menu, START the game!
-            gameState = "playing"; 
-            drawGame(); // Kick off the animation loop
-        } else if (gameState === "playing" && lynx.y >= lynx.ground) {
-            // If playing AND on the ground, JUMP!
-            lynx.dy = lynx.jumpPower;
-        }
-    }
-});
