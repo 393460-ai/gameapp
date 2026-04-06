@@ -10,6 +10,10 @@ run = ["php", "-S", "0.0.0.0:8000", "-t", "."]
 deploymentTarget = "cloudrun"
 
 [[ports]]
+localPort = 5904
+externalPort = 3000
+
+[[ports]]
 localPort = 8000
 externalPort = 80
 
