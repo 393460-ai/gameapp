@@ -1,7 +1,6 @@
 <?php
 // Start the session so we can remember who is playing!
 session_start();
-
 // If the player submitted the form, save their name and send them to the game!
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["playerName"])) {
     // Save the name securely
@@ -26,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["playerName"])) {
             text-align: center;
             margin-top: 80px;
         }
-
         h1 { 
             font-size: 4em; 
             color: #FF8C00; 
@@ -34,12 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["playerName"])) {
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
-
         h2 {
             color: #E67E22;
             margin-bottom: 40px;
         }
-
         /* The Menu Box */
         .menu-container {
             background-color: white;
@@ -50,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["playerName"])) {
             padding: 40px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-
         input[type="text"] {
             width: 80%;
             padding: 12px;
@@ -60,12 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["playerName"])) {
             margin-bottom: 20px;
             text-align: center;
         }
-
         input[type="text"]:focus {
             outline: none;
             border-color: #FF8C00;
         }
-
         /* Buttons */
         .btn {
             background-color: #FF8C00;
@@ -85,35 +78,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["playerName"])) {
             box-sizing: border-box;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
         .btn:hover {
             background-color: #E67E22;
             transform: scale(1.05); 
         }
-
         .btn-secondary {
             background-color: #87CEEB; /* Sky blue for the leaderboard button */
             color: #333;
         }
-
         .btn-secondary:hover {
             background-color: #5DADE2;
         }
     </style>
 </head>
 <body>
-
     <h1>High Speed Lynx</h1>
     <h2>Ready to run? The Desert awaits...</h2>
-
     <div class="menu-container">
         <form method="POST" action="index.php">
             <input type="text" name="playerName" placeholder="Enter Player Name..." required maxlength="15">
             <button type="submit" class="btn">START RUNNING</button>
         </form>
-
         <a href="leaderboard.php" class="btn btn-secondary">VIEW LEADERBOARD</a>
+        <a href="about.php" class="btn btn-secondary">ABOUT</a>
     </div>
-
 </body>
 </html>
